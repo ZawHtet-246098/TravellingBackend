@@ -16,14 +16,16 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send(`App is runnging`);
+});
+
 app.use("/user", userRoute);
 app.use("/posts", postRoutes);
 app.use("/places", placesRoute);
 app.use("/hotels", hotelRoute);
 
-app.get("/", (req, res) => {
-  res.send(`App is runnging`);
-});
+
 
 const CONNNECTION_URL =
   "mongodb+srv://ZawHtet:zawhtet150travel@cluster0.xreb3.mongodb.net/Authentication?retryWrites=true&w=majority";
